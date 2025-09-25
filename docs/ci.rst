@@ -43,7 +43,7 @@ provided (``mirror/<remote-name>/<branch>``):
 When upstreaming a driver, target the pull-request against the mirror.
 
 All of them are mirrors from the links shown with a single commit on top
-that includes the CI workflows, :git-linux:`as simple as <.github/workflows/sync-mirror.yml>`:
+that includes the CI workflows, :git-linux:`as simple as <.github/workflows/mirror.yml>`:
 
 .. shell::
 
@@ -279,13 +279,17 @@ users:
 Build the container image
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To build the container image, use your favorite container engine:
+To build the container image, use your favorite container engine from the
+:git-linux:`ci branch <ci:>`:
 
 .. shell::
 
    $cd ~/linux
+   $git branch
+    * ci
+      main
    $alias container=podman # or docker, ...
-   $container build --tag adi/linux:latest ci
+   $container build --tag adi/linux:latest container
 
 You may want to build the container in a host, where you have all your tools installed,
 and then deploy to a server.
